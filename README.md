@@ -1,0 +1,2 @@
+gwt-portlet-bridge
+==================

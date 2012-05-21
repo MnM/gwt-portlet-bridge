@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<project name="Build Samples" basedir=".">
+
+  <property file="${basedir}/build.properties"/>
+
+  <property name="dir.working" location="${basedir}/working"/>
+  <property name="dir.working.gwt.gen" location="${dir.working}/gwtgen"/>
+  <property name="dir.working.war" location="${dir.working}/war"/>
+  <property name="dir.lib.packaged" location="${basedir}/lib/packaged"/>
+  <property name="dir.lib.provided" location="${basedir}/lib/provided"/>
+  <property name="dir.webcontent" location="${basedir}/web"/>
+  <property name="dir.artifacts" location="${basedir}/artifacts"/>
+  <property name="dir.resources.ear" location="${basedir}/src/main/resources/ear"/>
+
+
+  <path id="class.path.javac">
+    <fileset dir="${dir.lib.gwt}">
+      <include name="gwt-dev.jar"/>
+      <include name="gwt-user.jar"/>
+      <include name="requestfactory-apt.jar"/>
+      <include name="validation-api-*.jar"/>
+    </fileset>
+
+    <fileset dir="${dir.lib.packaged}" includes="*.jar"/>
+    <fileset dir="${dir.lib.provided}" includes="*.jar"/>
+  </path>
+
+  <path id="class.path.gwt-compile">
+    <path refid="class.path.javac"/>
+    <pathelement location="${basedir}/src/main/java"/>
+    <pathelement location="${dir.working.war}/WEB-INF/classes"/>
+
+    <fileset dir="${dir.lib.gwt}">
+      <include name="requestfactory-server+src.jar"/>
+    </fileset>
+  </path>
+
+
+  <target name="clean" description="Cleans working folder and artifacts">
+    <delete dir="${dir.working}"/>
+    <delete dir="${dir.artifacts}"/>
+  </target>
+
+
+  <target name="artifacts" depends="clean, compile-java, compile-gwt, prepare-working"
+          description="Builds all artifacts">
+    <mkdir dir="${dir.artifacts}"/>
+
+    <jar destfile="${dir.artifacts}/gpb-samples.war" duplicate="preserve">
+      <fileset dir="${dir.working.war}" includes="**/*.*"/>
+      <fileset dir="${dir.webcontent}">
+        <include name="**/*.*"/>
+        <exclude name="WEB-INF/classes/**/*.*"/>
+        <exclude name="WEB-INF/RpcClient/**/*.*"/>
+      </fileset>
+    </jar>
+
+    <jar destfile="${dir.artifacts}/gpb-samples.ear" duplicate="preserve">
+      <fileset dir="${dir.resources.ear}" includes="**/*.*"/>
+      <fileset dir="${dir.artifacts}" includes="gpb-samples.war"/>
+    </jar>
+  </target>
+
+
+  <target name="prepare-working">
+    <mkdir dir="${dir.working.war}/WEB-INF/lib" />
+    <mkdir dir="${dir.working.war}/WEB-INF/classes" />
+
+    <copy todir="${dir.working.war}/WEB-INF/lib">
+      <fileset dir="${dir.lib.gwt}">
+        <include name="gwt-servlet.jar"/>
+        <include name="gwt-servlet-deps.jar"/>
+        <include name="requestfactory-server.jar"/>
+        <include name="validation-api-*.jar"/>
+        <exclude name="validation-api-*src.jar"/>
+      </fileset>
+
+      <fileset dir="${dir.lib.packaged}">
+        <include name="**/*.jar"/>
+      </fileset>
+    </copy>
+  </target>
+
+
+  <target name="compile-java">
+    <mkdir dir="${dir.working.war}/WEB-INF/classes"/>
+
+    <javac includes="**" encoding="utf-8" destdir="${dir.working.war}/WEB-INF/classes" source="1.6"
+           target="1.6" nowarn="false" debug="false" includeantruntime="false">
+      <classpath>
+        <path refid="class.path.javac"/>
+      </classpath>
+      <src path="${basedir}/src/main/java"/>
+    </javac>
+  </target>
+
+
+  <target name="compile-gwt" depends="compile-java">
+    <antcall target="compile-gwt-module">
+      <param name="gwt.module.name" value="com.chfourie.samples.rpc.RpcClient"/>
+    </antcall>
+
+    <antcall target="compile-gwt-module">
+      <param name="gwt.module.name" value="com.chfourie.samples.requestfactory.RequestFactory"/>
+    </antcall>
+
+    <antcall target="compile-gwt-module">
+      <param name="gwt.module.name" value="com.chfourie.samples.clientparams.ClientParams"/>
+    </antcall>
+  </target>
+
+
+  <target name="compile-gwt-module" depends="compile-java">
+    <mkdir dir="${dir.working.war}"/>
+    <mkdir dir="${dir.working.gwt.gen}"/>
+
+    <java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
+      <classpath>
+        <path refid="class.path.gwt-compile"/>
+      </classpath>
+
+      <jvmarg value="-Xmx512M"/>
+      <arg line="-gen ${dir.working.gwt.gen}"/>
+      <arg line="-war ${dir.working.war}"/>
+      <!-- In GWT 2.4 you cannot use strict when compiling an application that uses requestfactory -->
+      <!--<arg value="-strict"/>-->
+      <arg value="${gwt.module.name}"/>
+    </java>
+  </target>
+
+</project>

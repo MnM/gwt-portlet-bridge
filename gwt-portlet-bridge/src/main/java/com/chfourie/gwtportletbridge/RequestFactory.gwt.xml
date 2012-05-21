@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module>
+  <inherits name="com.chfourie.gwtportletbridge.GwtPortletBridge"/>
+  <inherits name='com.google.web.bindery.requestfactory.RequestFactory' />
+
+  <source path='client/requestfactory'/>
+
+
+  <define-property name="gpb.autoConfigureRequestFactories" values="true,false" />
+
+  <set-property name="gpb.autoConfigureRequestFactories" value="true" />
+
+
+  <generate-with class="com.chfourie.gwtportletbridge.rebind.requestfactory.PortletRequestFactoryGenerator">
+    <when-type-assignable class='com.google.web.bindery.requestfactory.shared.RequestFactory'/>
+    <when-property-is name="gpb.autoConfigureRequestFactories" value="true"/>
+  </generate-with>
+</module>

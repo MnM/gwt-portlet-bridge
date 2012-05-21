@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module>
+  <inherits name="com.google.gwt.core.Core"/>
+
+  <source path='client/general'/>
+
+
+  <replace-with class='com.chfourie.gwtportletbridge.client.general.impl.PortletClientContextImpl'>
+    <when-type-is class='com.chfourie.gwtportletbridge.client.general.api.PortletClientContext'/>
+  </replace-with>
+
+
+  <define-property name="gpb.autoConfigureRemoteServices" values="true,false" />
+
+  <set-property name="gpb.autoConfigureRemoteServices" value="true" />
+
+
+  <generate-with class="com.chfourie.gwtportletbridge.rebind.rpc.PortletServiceInterfaceProxyGenerator">
+    <when-type-assignable class="com.google.gwt.user.client.rpc.RemoteService"/>
+    <when-property-is name="gpb.autoConfigureRemoteServices" value="true"/>
+  </generate-with>
+</module>

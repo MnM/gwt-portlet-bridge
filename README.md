@@ -1,2 +1,1 @@
-gwt-portlet-bridge
-==================
+# gwt-portlet-bridge

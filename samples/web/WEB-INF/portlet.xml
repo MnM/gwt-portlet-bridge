@@ -1,0 +1,71 @@
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             id="EAppPortlet" version="2.0">
+
+  <!--######################################################################-->
+
+  <portlet>
+    <portlet-name>RpcPortlet</portlet-name>
+    <display-name>RpcPortlet</display-name>
+
+    <portlet-class>
+      com.chfourie.samples.rpc.server.RpcPortlet
+    </portlet-class>
+
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>view</portlet-mode>
+    </supports>
+
+    <supported-locale>en</supported-locale>
+
+    <portlet-info>
+      <title>RpcPortlet</title>
+    </portlet-info>
+  </portlet>
+
+  <!--######################################################################-->
+
+  <portlet>
+    <portlet-name>RequestFactoryPortlet</portlet-name>
+    <display-name>RequestFactoryPortlet</display-name>
+
+    <portlet-class>
+      com.chfourie.samples.requestfactory.server.RequestFactoryPortlet
+    </portlet-class>
+
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>view</portlet-mode>
+    </supports>
+
+    <supported-locale>en</supported-locale>
+
+    <portlet-info>
+      <title>RequestFactoryPortlet</title>
+    </portlet-info>
+  </portlet>
+
+  <!--######################################################################-->
+
+  <portlet>
+    <portlet-name>ClientParamsPortlet</portlet-name>
+    <display-name>ClientParamsPortlet</display-name>
+
+    <portlet-class>
+      com.chfourie.samples.clientparams.server.ClientParamsPortlet
+    </portlet-class>
+
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>view</portlet-mode>
+    </supports>
+
+    <supported-locale>en</supported-locale>
+
+    <portlet-info>
+      <title>ClientParamsPortlet</title>
+    </portlet-info>
+  </portlet>
+
+</portlet-app>

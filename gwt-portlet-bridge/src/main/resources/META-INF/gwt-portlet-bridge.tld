@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<taglib version="2.0"
+        xmlns="http://java.sun.com/xml/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+
+    <tlib-version>0.0.1</tlib-version>
+    <jsp-version>1.2</jsp-version>
+    <short-name>gwt</short-name>
+    <uri>http://chfourie.com/gwt-portlet-bridge</uri>
+    <description>Utility tags for using GWT in a portlet environment</description>
+
+    <tag>
+        <name>module</name>
+        <tag-class>com.chfourie.gwtportletbridge.server.tags.ModuleTag</tag-class>
+        <body-content>empty</body-content>
+
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>stylesheet</name>
+        <tag-class>com.chfourie.gwtportletbridge.server.tags.StylesheetTag</tag-class>
+        <body-content>empty</body-content>
+
+        <attribute>
+            <name>href</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>media</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>link</name>
+        <tag-class>com.chfourie.gwtportletbridge.server.tags.LinkTag</tag-class>
+        <body-content>empty</body-content>
+
+        <attribute>
+            <name>charset</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>href</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>media</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>rel</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>rev</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>target</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>type</name>
+            <required>false</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>script</name>
+        <tag-class>com.chfourie.gwtportletbridge.server.tags.ScriptTag</tag-class>
+        <body-content>empty</body-content>
+
+        <attribute>
+            <name>src</name>
+            <required>true</required>
+            <rtexprvalue>false</rtexprvalue>
+        </attribute>
+    </tag>
+
+</taglib>

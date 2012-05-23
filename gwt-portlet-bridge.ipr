@@ -323,18 +323,18 @@
   <component name="libraryTable">
     <library name="gwt">
       <CLASSES>
-        <root url="jar://D:/Libraries/gwt-2.4.0/gwt-dev.jar!/" />
-        <root url="jar://D:/Libraries/gwt-2.4.0/gwt-user.jar!/" />
-        <root url="jar://D:/Libraries/gwt-2.4.0/requestfactory-apt.jar!/" />
-        <root url="jar://D:/Libraries/gwt-2.4.0/requestfactory-client+src.jar!/" />
-        <root url="jar://D:/Libraries/gwt-2.4.0/validation-api-1.0.0.GA.jar!/" />
+        <root url="jar://$USER_HOME$/Libraries/gwt-2.4.0/gwt-dev.jar!/" />
+        <root url="jar://$USER_HOME$/Libraries/gwt-2.4.0/gwt-user.jar!/" />
+        <root url="jar://$USER_HOME$/Libraries/gwt-2.4.0/requestfactory-apt.jar!/" />
+        <root url="jar://$USER_HOME$/Libraries/gwt-2.4.0/requestfactory-client+src.jar!/" />
+        <root url="jar://$USER_HOME$/Libraries/gwt-2.4.0/validation-api-1.0.0.GA.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES>
-        <root url="jar://D:/Libraries/gwt-2.4.0/gwt-dev.jar!/" />
-        <root url="jar://D:/Libraries/gwt-2.4.0/gwt-user.jar!/" />
-        <root url="jar://D:/Libraries/gwt-2.4.0/requestfactory-client+src.jar!/" />
-        <root url="jar://D:/Libraries/gwt-2.4.0/validation-api-1.0.0.GA-sources.jar!/" />
+        <root url="jar://$USER_HOME$/Libraries/gwt-2.4.0/gwt-dev.jar!/" />
+        <root url="jar://$USER_HOME$/Libraries/gwt-2.4.0/gwt-user.jar!/" />
+        <root url="jar://$USER_HOME$/Libraries/gwt-2.4.0/requestfactory-client+src.jar!/" />
+        <root url="jar://$USER_HOME$/Libraries/gwt-2.4.0/validation-api-1.0.0.GA-sources.jar!/" />
       </SOURCES>
     </library>
   </component>

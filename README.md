@@ -1,5 +1,4 @@
-[[Testing]]
-
+[Test](test.md)
 # GWT Portlet Bridge
 
 ## Introduction

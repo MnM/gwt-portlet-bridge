@@ -1,4 +1,4 @@
-RPC Example
+RequestFactory Example
 ===========
 
 In this example I will take a simple RequestFactory project and integrate the gwt-portlet-bridge into it.  The finished example can be found under the 'samples' folder in the source tree.

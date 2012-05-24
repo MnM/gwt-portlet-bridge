@@ -32,14 +32,6 @@ The project is not documented in as much detail as initially intended.  I do tru
     to the application script.  The same dynamics as the above point therefore applies.  Once again this
     should not pose a problem to most Portal & WSRP implementations.
 
-## Copyright
-
-All of the deliverable code in the GWT Portlet Bridge has been dedicated to the public domain.  
-
-Anyone is free to copy, modify, publish, use, compile, sell, or distribute the original 
-GWT Portlet Bridge code, either in source code form or as a compiled library, for any purpose, 
-commercial or non-commercial, and by any means.
-
 ## Version History
 
 The version history can be found [here](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/Version-History.md).
@@ -70,3 +62,6 @@ Just make sure that your _com.chfourie.gwtportletbridge.RequestFactory_ inherit 
 
 ### Embedding String Parameters in your HTML page
 Follow the steps described in the [Client Parameters Example](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/Client-Parameters-Example.md).
+
+## Licence
+Copyright © Charl Fourie. MIT License.

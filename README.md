@@ -30,7 +30,7 @@ The project is not documented in as much detail as initially intended.  I do tru
 All of the deliverable code in the GWT Portlet Bridge has been dedicated to the public domain.  
 
 Anyone is free to copy, modify, publish, use, compile, sell, or distribute the original 
-GWT Portlet Bridge code, either in source code form or as a compiled binary, for any purpose, 
+GWT Portlet Bridge code, either in source code form or as a compiled library, for any purpose, 
 commercial or non-commercial, and by any means.
 
 ## Version History

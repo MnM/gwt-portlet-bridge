@@ -48,8 +48,10 @@ Follow the steps described in the [RPC Example](https://github.com/chfourie/gwt-
 ### Using RequestFactory in a GWT Portlet Project
 Follow the steps described in the [RequestFactory Example](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/RequestFactory-Example.md).
 
-### Using RPC in a GWT Portlet Project Configured for RequestFactory
-If your GWT module already inherits _com.chfourie.gwtportletbridge.RequestFactory_, you do **NOT** have to inherit _com.chfourie.gwtportletbridge.GwtPortletBridge_ separately.  Just make sure that your _com.chfourie.gwtportletbridge.RequestFactory_ inherit clause is positioned after any other modules that might inherit from _com.google.gwt.core.Core_.
+### Using both RPC and RequestFactory in the same GWT Portlet Project
+Follow the steps described in the [RequestFactory Example](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/RequestFactory-Example.md).  
+You do **NOT** have to inherit _com.chfourie.gwtportletbridge.GwtPortletBridge_ separately.  
+Just make sure that your _com.chfourie.gwtportletbridge.RequestFactory_ inherit clause is positioned after any other modules that might inherit from _com.google.gwt.core.Core_.
 
 ### Embedding String Parameters in your HTML page
 Follow the steps described in the [Client Parameters Example](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/Client-Parameters-Example.md).

@@ -35,7 +35,7 @@ All released artefacts can be downloaded from [here](https://github.com/chfourie
 
 ## Building from Source
 
-The instructions on building the gwt-portlet-bridge from source can be found [here]([here](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/Building-From-Source.md).
+The instructions on building the gwt-portlet-bridge from source can be found [here](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/Building-From-Source.md).
 
 ## Recipes
 

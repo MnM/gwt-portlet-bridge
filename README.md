@@ -63,7 +63,7 @@ Just make sure that your _com.chfourie.gwtportletbridge.RequestFactory_ inherit 
 ### Embedding String Parameters in your HTML page
 Follow the steps described in the [Client Parameters Example](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/Client-Parameters-Example.md).
 
-## Licence
+## License
 All of the deliverable code in the GWT Portlet Bridge has been dedicated to the public domain.  
 
 Anyone is free to copy, modify, publish, use, compile, sell, or distribute the original GWT Portlet 

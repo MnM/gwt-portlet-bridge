@@ -2,3 +2,4 @@
 */artifacts
 *.iws
 *~
+samples/lib/packaged/gwt-portlet-bridge.jar

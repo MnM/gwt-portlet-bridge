@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<project name="Build Samples" basedir=".">
+<project name="Build Samples" basedir="." default="artifacts">
 
   <property file="${basedir}/build.properties"/>
 

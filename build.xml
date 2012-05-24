@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<project name="Build Samples" basedir="." default="artifacts">
+  <target name="artifacts">
+    <ant antfile="${basedir}/gwt-portlet-bridge/build.xml" target="package" usenativebasedir="true"/>
+    <ant antfile="${basedir}/samples/build.xml" target="artifacts"  usenativebasedir="true"/>
+  </target>
+</project>

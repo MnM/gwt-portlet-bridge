@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<project name="gwt-portlet-bridge" basedir=".">
+<project name="gwt-portlet-bridge" basedir="." default="package">
 
   <property file="${basedir}/build.properties"/>
 

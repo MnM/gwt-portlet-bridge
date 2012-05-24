@@ -25,6 +25,14 @@ The project is not documented in as much detail as initially intended.  I do tru
   * When GWT is loaded in the browser, an initial bootstrap JavaScript file is loaded initially.  This boonstrap script determines various parameters such as the browser type being used and then uses this information to load the relevant version of the application.  The URL that it currently compiles and uses to load the relevant version of the application in compiled as a URL relative to itself.  Since the portlet mechanism for encoding URL's wasn't used it might break certain portlet/WSRP implementations.  I do believe that these implementations will be the exception rather than the rule.
   * Images and other resources referenced within the GWT application are currently referenced relative to the application script.  The same dynamics as the above point therefore applies.
 
+## Copyright
+
+All of the deliverable code in the GWT Portlet Bridge has been dedicated to the public domain.  
+
+Anyone is free to copy, modify, publish, use, compile, sell, or distribute the original 
+GWT Portlet Bridge code, either in source code form or as a compiled binary, for any purpose, 
+commercial or non-commercial, and by any means.
+
 ## Version History
 
 The version history can be found [here](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/Version-History.md).

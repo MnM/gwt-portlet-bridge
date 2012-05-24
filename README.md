@@ -64,4 +64,14 @@ Just make sure that your _com.chfourie.gwtportletbridge.RequestFactory_ inherit 
 Follow the steps described in the [Client Parameters Example](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/Client-Parameters-Example.md).
 
 ## Licence
-Copyright © Charl Fourie. MIT License.
+All of the deliverable code in the GWT Portlet Bridge has been dedicated to the public domain.  
+
+Anyone is free to copy, modify, publish, use, compile, sell, or distribute the original GWT Portlet 
+Bridge code, either in source code form or as a compiled library, for any purpose, commercial or 
+non-commercial, and by any means.  
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT 
+LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO 
+EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER 
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR 
+THE USE OR OTHER DEALINGS IN THE SOFTWARE.

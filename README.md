@@ -22,8 +22,15 @@ I trust that most of the above goals have been reached with the exception of the
 The project is not documented in as much detail as initially intended.  I do trust however that the documentation in combination with the samples found in the source tree is sufficient.
 
 ### Relative Paths
-  * When GWT is loaded in the browser, an initial bootstrap JavaScript file is loaded initially.  This boonstrap script determines various parameters such as the browser type being used and then uses this information to load the relevant version of the application.  The URL that it currently compiles and uses to load the relevant version of the application in compiled as a URL relative to itself.  Since the portlet mechanism for encoding URL's wasn't used it might break certain portlet/WSRP implementations.  I do believe that these implementations will be the exception rather than the rule.
-  * Images and other resources referenced within the GWT application are currently referenced relative to the application script.  The same dynamics as the above point therefore applies.
+  * When GWT is loaded in the browser, an initial bootstrap JavaScript file is loaded initially.  This 
+    boonstrap script determines various parameters such as the browser type being used and then uses this 
+    information to load the relevant version of the application.  The URL that it currently compiles and 
+    uses to load the relevant version of the application in compiled as a URL relative to itself.  Since 
+    the portlet mechanism for encoding URL's wasn't used it might break certain portlet/WSRP 
+    implementations.  I do believe that these implementations will be the exception rather than the rule.
+  * Images and other resources referenced within the GWT application are currently referenced relative 
+    to the application script.  The same dynamics as the above point therefore applies.  Once again this
+    should not pose a problem to most Portal & WSRP implementations.
 
 ## Copyright
 

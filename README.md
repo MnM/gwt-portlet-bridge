@@ -27,7 +27,15 @@ The project is not documented in as much detail as initially intended.  I do tru
 
 ## Version History
 
-_TODO: Add version history here._
+The version history can be found [here](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/Version-History.md).
+
+## Downloads
+
+All artifacts can be downloaded from [here](https://github.com/chfourie/gwt-portlet-bridge/downloads).  
+
+## Building from Source
+
+TODO:...
 
 ## Recipes
 

@@ -31,7 +31,7 @@ The version history can be found [here](https://github.com/chfourie/gwt-portlet-
 
 ## Downloads
 
-All released artefacts can be downloaded from [here](https://github.com/chfourie/gwt-portlet-bridge/downloads).  
+All released artifacts can be downloaded from [here](https://github.com/chfourie/gwt-portlet-bridge/downloads).  
 
 ## Building from Source
 

@@ -74,6 +74,11 @@
       <fileset dir="${dir.src.main}" includes="**/*.*"/>
       <fileset dir="${dir.resources.main}" includes="**/*.*"/>
     </jar>
+
+    <delete file="${basedir}/../samples/lib/packaged/gwt-portlet-bridge.jar" />
+
+    <copy file="${dir.artifacts}/gwt-portlet-bridge-${project.version}.jar"
+          tofile="${basedir}/../samples/lib/packaged/gwt-portlet-bridge.jar" />
   </target>
 
 </project>

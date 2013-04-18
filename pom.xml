@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.chfourie</groupId>
+  <packaging>pom</packaging>
+  <version>1.0.1-SNAPSHOT</version>
+  <name>Gwt Portlet Bridge</name>
+  <url>https://github.com/polane/gwt-portlet-bridge</url>
+  
+  <artifactId>gwt-portlet-bridge</artifactId>
+  <description>Gwt Portlet Bridge</description>
+  <properties>
+        <!-- maven-compiler-plugin -->
+        <maven.compiler.plugin.version>3.0</maven.compiler.plugin.version>
+        <maven.compiler.target>1.6</maven.compiler.target>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- gwt -->
+        <gwt.version>2.4.0</gwt.version>
+        
+        <javax.portlet.version>2.0</javax.portlet.version>
+    </properties>
+    
+    <dependencyManagement>
+    	<dependencies>
+    	<dependency>
+			<groupId>com.google.gwt</groupId>
+				<artifactId>gwt-servlet</artifactId>
+				<version>${gwt.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.gwt</groupId>
+				<artifactId>gwt-user</artifactId>
+				<version>${gwt.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.gwt</groupId>
+				<artifactId>gwt-dev</artifactId>
+				<version>${gwt.version}</version>
+			</dependency>
+			<dependency>
+            <groupId>javax.portlet</groupId>
+            <artifactId>portlet-api</artifactId>
+            <version>${javax.portlet.version}</version>
+        </dependency>
+    	</dependencies>
+    </dependencyManagement>
+    
+    <build>
+    	
+    	<pluginManagement>
+    		<plugins>
+    			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+            
+    		</plugins>
+    	</pluginManagement>
+    </build>
+    
+    <modules>
+    	<module>gwt-portlet-bridge-core</module>
+    </modules>
+</project>

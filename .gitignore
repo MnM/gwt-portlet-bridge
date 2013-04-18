@@ -2,4 +2,7 @@
 */artifacts
 *.iws
 *~
-samples/lib/packaged/gwt-portlet-bridge.jar
+*/.settings
+*/target
+*/.project
+*/.classpath

@@ -5,6 +5,6 @@
 <web-app>
   <taglib>
     <taglib-uri>http://chfourie.com/gwt-portlet-bridge</taglib-uri>
-    <taglib-location>WEB-INF/lib/gwt-portlet-bridge-0.1.0.jar</taglib-location>
+    <taglib-location>WEB-INF/lib/gwt-portlet-bridge-core-${project.version}.jar</taglib-location>
   </taglib>
 </web-app>

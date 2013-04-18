@@ -21,7 +21,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
-				<version>2.5.0</version>
+				<version>${gwt.version}</version>
 				<extensions>true</extensions>
 				<executions>
 					<execution>
@@ -31,9 +31,12 @@
 					</execution>
 				</executions>
 				<configuration>
-					<module>com.nyxsystems.radiqa.App</module>
+					<modules>
+						<module>com.chfourie.samples.rpc.RpcClient</module>
+						<module>com.chfourie.samples.requestfactory.RequestFactory</module>
+						<module>com.chfourie.samples.clientparams.ClientParams</module>
+					</modules>
 					<hostedWebapp>target/${project.artifactId}-${project.version}</hostedWebapp>
-					<runTarget>com.nyxsystems.radiqa.App/App.jsp</runTarget>
 				</configuration>
 			</plugin>
 
@@ -41,7 +44,9 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.3</version>
-
+				<configuration>
+					<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
+				</configuration>
 			</plugin>
 
 
@@ -53,7 +58,16 @@
 		<dependency>
 			<groupId>com.chfourie</groupId>
 			<artifactId>gwt-portlet-bridge-core</artifactId>
-			<version>1.0.1-SNAPSHOT</version>
+			<version>${project.version}</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>com.chfourie</groupId>
+			<artifactId>gwt-portlet-bridge-core</artifactId>
+			<!-- classifier>sources</classifier-->
+			<type>java-source</type>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
+	<packaging>war</packaging>
 </project>

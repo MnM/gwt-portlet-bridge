@@ -66,5 +66,6 @@
     
     <modules>
     	<module>gwt-portlet-bridge-core</module>
+    	<module>gwt-portlet-bridge-samples</module>
     </modules>
 </project>

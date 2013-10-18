@@ -9,6 +9,10 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Locale;
 
+/**
+ * Response from within the serveResource method, as specified by
+ * PORTLETSPEC_20 PLT.19.4.5.
+ */
 public class HttpServletResponseImpl implements HttpServletResponse {
   private ResourceResponse response;
 
@@ -19,17 +23,17 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must perform no operations: ..., addCookie,...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public void addCookie(Cookie cookie) {
+    response.addProperty(cookie);
   }
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The containsHeader method of the HttpServletResponse must return false.
+   * PORTLETSPEC_20 PLT.19.4.6
+   * false
    */
   @Override
   public boolean containsHeader(String name) {
@@ -38,9 +42,7 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must be equivalent to the methods of the ResourceResponse of
-   * similar name: ..., encodeURL, ...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public String encodeURL(String url) {
@@ -50,8 +52,8 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must return null: ..., encodeRedirectURL, ...
+   * PORTLETSPEC_20 PLT.19.4.6
+   * null
    */
   @Override
   public String encodeRedirectURL(String url) {
@@ -60,9 +62,7 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must be equivalent to the methods of the ResourceResponse of
-   * similar name: ..., encodeUrl, ...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public String encodeUrl(String url) {
@@ -71,8 +71,8 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must return null: ..., encodeRedirectUrl, ...
+   * PORTLETSPEC_20 PLT.19.4.6
+   * null
    */
   @Override
   public String encodeRedirectUrl(String url) {
@@ -81,8 +81,8 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must perform no operations: ..., sendError,...
+   * PORTLETSPEC_20 PLT.19.4.6
+   * no-op
    */
   @Override
   public void sendError(int sc, String msg) throws IOException {
@@ -90,8 +90,8 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must perform no operations: ..., sendError,...
+   * PORTLETSPEC_20 PLT.19.4.6
+   * no-op
    */
   @Override
   public void sendError(int sc) throws IOException {
@@ -99,10 +99,9 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must perform no operations: ..., sendRedirect,...
+   * PORTLETSPEC_20 PLT.19.4.6
+   * no-op
    */
-
   @Override
   public void sendRedirect(String location) throws IOException {
   }
@@ -127,47 +126,47 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must perform no operations: ..., setHeader,...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public void setHeader(String name, String value) {
+    response.setProperty(name, value);
   }
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must perform no operations: ..., addHeader,...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public void addHeader(String name, String value) {
+    response.addProperty(name, value);
   }
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must perform no operations: ..., setIntHeader,...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public void setIntHeader(String name, int value) {
+    response.setProperty(name, Integer.toString(value));
   }
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must perform no operations: ..., addIntHeader,...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public void addIntHeader(String name, int value) {
+    response.addProperty(name, Integer.toString(value));
   }
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must perform no operations: ..., setStatus,...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public void setStatus(int sc) {
+    response.setProperty(ResourceResponse.HTTP_STATUS_CODE, Integer.toString(sc));
   }
 
 
@@ -181,9 +180,7 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must be equivalent to the methods of the ResourceResponse of
-   * similar name: ..., getCharacterEncoding, ...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public String getCharacterEncoding() {
@@ -192,8 +189,7 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must perform no operations: ..., setContentType,...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
 
   @Override
@@ -215,9 +211,7 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must be equivalent to the methods of the ResourceResponse of
-   * similar name: ..., getOutputStream, ...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public PrintWriter getWriter() throws IOException {
@@ -226,36 +220,34 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must perform no operations: ..., setCharacterEncoding,...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public void setCharacterEncoding(String charset) {
+    response.setCharacterEncoding(charset);
   }
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must perform no operations: ..., setContentLength,...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public void setContentLength(int len) {
+    response.setContentLength(len);
   }
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must perform no operations: ..., setContentType,...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public void setContentType(String type) {
+      response.setContentType(type);
   }
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must be equivalent to the methods of the ResourceResponse of
-   * similar name: ..., setBufferSize, ...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public void setBufferSize(int size) {
@@ -264,9 +256,7 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must be equivalent to the methods of the ResourceResponse of
-   * similar name: ..., getBufferSize, ...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public int getBufferSize() {
@@ -275,9 +265,7 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must be equivalent to the methods of the ResourceResponse of
-   * similar name: ..., flushBuffer, ...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public void flushBuffer() throws IOException {
@@ -286,9 +274,7 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must be equivalent to the methods of the ResourceResponse of
-   * similar name: ..., resetBuffer, ...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public void resetBuffer() {
@@ -297,9 +283,7 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must be equivalent to the methods of the ResourceResponse of
-   * similar name: ..., isCommitted, ...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public boolean isCommitted() {
@@ -308,9 +292,7 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must be equivalent to the methods of the ResourceResponse of
-   * similar name: ..., reset, ...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public void reset() {
@@ -319,18 +301,16 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must perform no operations: ..., setLocale,...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public void setLocale(Locale loc) {
+      response.setLocale(loc);
   }
 
 
   /*
-   * PORTLETSPEC_20 PLT.19.3.5
-   * The following methods of the HttpServletResponse must be equivalent to the methods of the ResourceResponse of
-   * similar name: ..., getLocale, ...
+   * PORTLETSPEC_20 PLT.19.4.6
    */
   @Override
   public Locale getLocale() {

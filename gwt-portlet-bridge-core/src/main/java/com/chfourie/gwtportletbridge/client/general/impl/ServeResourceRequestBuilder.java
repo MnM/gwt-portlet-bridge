@@ -32,7 +32,7 @@ public class ServeResourceRequestBuilder extends RequestBuilder {
 
   @Override
   public String getHeader(String header) {
-    return NativeGWT.decodeQueryString(fields.get(header));
+    return fields.get(header);
   }
 
 
@@ -40,7 +40,7 @@ public class ServeResourceRequestBuilder extends RequestBuilder {
   public void setHeader(String header, String value) {
     throwIfEmptyOrNull("header", header);
     throwIfEmptyOrNull("value", value);
-    fields.put(header, NativeGWT.encodeQueryString(value));
+    fields.put(header, value);
   }
 
 
@@ -56,6 +56,10 @@ public class ServeResourceRequestBuilder extends RequestBuilder {
   }
 
 
+  /**
+   * The things we send here are post-processed by
+   * {@link com.chfourie.gwtportletbridge.server.servlet.container.gwt.GwtServiceServletRequest#getInputStream()}.
+   */
   @Override
   public Request send() throws RequestException {
     throwIfNull("callback", getCallback());
@@ -71,7 +75,8 @@ public class ServeResourceRequestBuilder extends RequestBuilder {
 
     for (String key : fields.keySet()) {
       if (builder.length() > 0) builder.append('&');
-      builder.append(key).append('=').append(fields.get(key));
+      String encodedValue = NativeGWT.encodeQueryString(fields.get(key));
+      builder.append(key).append('=').append(encodedValue);
     }
 
     return builder.toString();

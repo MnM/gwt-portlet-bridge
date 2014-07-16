@@ -7,6 +7,12 @@
     <artifactId>gwt-portlet-bridge-core</artifactId>
     <description>Gwt Portlet Bridge Core</description>
 
+    <parent>
+        <groupId>com.chfourie</groupId>
+        <artifactId>gwt-portlet-bridge</artifactId>
+        <version>2.5.1.0-SNAPSHOT</version>
+    </parent>
+
     <dependencies>
         <dependency>
             <groupId>com.google.gwt</groupId>
@@ -71,9 +77,4 @@
             </plugin>
         </plugins>
     </build>
-    <parent>
-        <groupId>com.chfourie</groupId>
-        <artifactId>gwt-portlet-bridge</artifactId>
-        <version>1.0.3-SNAPSHOT</version>
-    </parent>
 </project>

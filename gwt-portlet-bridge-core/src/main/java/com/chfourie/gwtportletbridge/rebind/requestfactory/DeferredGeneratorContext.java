@@ -1,5 +1,6 @@
 package com.chfourie.gwtportletbridge.rebind.requestfactory;
 
+import com.google.gwt.core.ext.CachedGeneratorResult;
 import com.google.gwt.core.ext.GeneratorContext;
 import com.google.gwt.core.ext.PropertyOracle;
 import com.google.gwt.core.ext.TreeLogger;
@@ -98,5 +99,25 @@ public class DeferredGeneratorContext implements GeneratorContext {
   @Override
   public OutputStream tryCreateResource(TreeLogger logger, String partialPath) throws UnableToCompleteException {
     return original.tryCreateResource(logger, partialPath);
+  }
+
+  @Override
+  public CachedGeneratorResult getCachedGeneratorResult() {
+    return original.getCachedGeneratorResult();
+  }
+
+  @Override
+  public boolean isGeneratorResultCachingEnabled() {
+    return original.isGeneratorResultCachingEnabled();
+  }
+
+  @Override
+  public boolean isProdMode() {
+    return original.isProdMode();
+  }
+
+  @Override
+  public boolean tryReuseTypeFromCache(String s) {
+    return original.tryReuseTypeFromCache(s);
   }
 }

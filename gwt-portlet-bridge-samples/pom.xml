@@ -33,6 +33,7 @@
 				<configuration>
 					<modules>
 						<module>com.chfourie.samples.rpc.RpcClient</module>
+						<module>com.chfourie.samples.rpc.RpcClientServlet</module>
 						<module>com.chfourie.samples.requestfactory.RequestFactory</module>
 						<module>com.chfourie.samples.clientparams.ClientParams</module>
 					</modules>
@@ -68,6 +69,11 @@
 			<type>java-source</type>
 			<version>${project.version}</version>
 		</dependency>
+    <dependency>
+      <groupId>com.chfourie</groupId>
+      <artifactId>gwt-portlet-bridge-extra</artifactId>
+      <version>${project.version}</version>
+    </dependency>
 	</dependencies>
 	<packaging>war</packaging>
 </project>

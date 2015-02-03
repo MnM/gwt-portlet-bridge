@@ -2,11 +2,11 @@ package com.chfourie.gwtportletbridge.server.clientparams;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 class SimpleClientParameters extends ClientParameters {
-  private final Map<String, String> parameters = new HashMap<String, String>();
+  private final Map<String, String> parameters = new LinkedHashMap<>();
 
 
   public SimpleClientParameters() {

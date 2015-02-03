@@ -248,7 +248,7 @@ public class GwtHttpServletResponseTest {
 
   @Test
   public void testAddCookie() {
-    final Cookie c = new Cookie("", "");
+    final Cookie c = new Cookie("test", "");
     response.addCookie(c);
     verify(resourceResponse).addProperty(c);
   }

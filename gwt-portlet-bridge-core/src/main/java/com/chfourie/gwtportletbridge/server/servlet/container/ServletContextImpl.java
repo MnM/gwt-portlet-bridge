@@ -2,14 +2,22 @@ package com.chfourie.gwtportletbridge.server.servlet.container;
 
 import javax.portlet.PortletContext;
 import javax.portlet.PortletRequestDispatcher;
+import javax.servlet.Filter;
+import javax.servlet.FilterRegistration;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.Servlet;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration;
+import javax.servlet.SessionCookieConfig;
+import javax.servlet.SessionTrackingMode;
+import javax.servlet.descriptor.JspConfigDescriptor;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Enumeration;
+import java.util.EventListener;
+import java.util.Map;
 import java.util.Set;
 
 public class ServletContextImpl implements ServletContext {
@@ -27,7 +35,7 @@ public class ServletContextImpl implements ServletContext {
   }
 
 
-  //@Override
+  @Override
   public String getContextPath() {
     throw new UnsupportedOperationException();
   }
@@ -52,7 +60,7 @@ public class ServletContextImpl implements ServletContext {
 
 
   @Override
-  public Set getResourcePaths(String path) {
+  public Set<String> getResourcePaths(String path) {
     return portletContext.getResourcePaths(path);
   }
 
@@ -90,13 +98,13 @@ public class ServletContextImpl implements ServletContext {
 
 
   @Override
-  public Enumeration getServlets() {
+  public Enumeration<Servlet> getServlets() {
     throw new UnsupportedOperationException();
   }
 
 
   @Override
-  public Enumeration getServletNames() {
+  public Enumeration<String> getServletNames() {
     throw new UnsupportedOperationException();
   }
 
@@ -138,7 +146,7 @@ public class ServletContextImpl implements ServletContext {
 
 
   @Override
-  public Enumeration getInitParameterNames() {
+  public Enumeration<String> getInitParameterNames() {
     return portletContext.getInitParameterNames();
   }
 
@@ -150,7 +158,7 @@ public class ServletContextImpl implements ServletContext {
 
 
   @Override
-  public Enumeration getAttributeNames() {
+  public Enumeration<String> getAttributeNames() {
     return portletContext.getAttributeNames();
   }
 
@@ -175,5 +183,135 @@ public class ServletContextImpl implements ServletContext {
 
   public PortletContext getPortletContext() {
     return portletContext;
+  }
+
+  @Override
+  public int getEffectiveMajorVersion() {
+    return getMajorVersion();
+  }
+
+  @Override
+  public int getEffectiveMinorVersion() {
+    return getMinorVersion();
+  }
+
+  @Override
+  public boolean setInitParameter(String s, String s1) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public ServletRegistration.Dynamic addServlet(String s, String s1) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public ServletRegistration.Dynamic addServlet(String s, Servlet servlet) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public ServletRegistration.Dynamic addServlet(String s, Class<? extends Servlet> aClass) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public <T extends Servlet> T createServlet(Class<T> aClass) throws ServletException {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public ServletRegistration getServletRegistration(String s) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Map<String, ? extends ServletRegistration> getServletRegistrations() {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public FilterRegistration.Dynamic addFilter(String s, String s1) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public FilterRegistration.Dynamic addFilter(String s, Filter filter) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public FilterRegistration.Dynamic addFilter(String s, Class<? extends Filter> aClass) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public <T extends Filter> T createFilter(Class<T> aClass) throws ServletException {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public FilterRegistration getFilterRegistration(String s) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Map<String, ? extends FilterRegistration> getFilterRegistrations() {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public SessionCookieConfig getSessionCookieConfig() {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public void setSessionTrackingModes(Set<SessionTrackingMode> set) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Set<SessionTrackingMode> getDefaultSessionTrackingModes() {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Set<SessionTrackingMode> getEffectiveSessionTrackingModes() {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public void addListener(String s) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public <T extends EventListener> void addListener(T t) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public void addListener(Class<? extends EventListener> aClass) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public <T extends EventListener> T createListener(Class<T> aClass) throws ServletException {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public JspConfigDescriptor getJspConfigDescriptor() {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public ClassLoader getClassLoader() {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public void declareRoles(String... strings) {
+    throw new UnsupportedOperationException();
   }
 }

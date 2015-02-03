@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.Collection;
 import java.util.Locale;
 
 /**
@@ -320,5 +321,25 @@ public class HttpServletResponseImpl implements HttpServletResponse {
 
   public ResourceResponse getResourceResponse() {
     return response;
+  }
+
+  @Override
+  public int getStatus() {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public String getHeader(String s) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Collection<String> getHeaders(String s) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Collection<String> getHeaderNames() {
+    throw new UnsupportedOperationException();
   }
 }

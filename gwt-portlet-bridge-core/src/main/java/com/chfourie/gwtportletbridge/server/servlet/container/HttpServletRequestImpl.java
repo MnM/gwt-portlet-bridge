@@ -3,16 +3,24 @@ package com.chfourie.gwtportletbridge.server.servlet.container;
 import com.chfourie.gwtportletbridge.server.util.HttpDateParser;
 
 import javax.portlet.ResourceRequest;
+import javax.servlet.AsyncContext;
+import javax.servlet.DispatcherType;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.Principal;
+import java.util.Collection;
 import java.util.Enumeration;
 import java.util.Locale;
 import java.util.Map;
@@ -83,7 +91,7 @@ public class HttpServletRequestImpl implements HttpServletRequest {
    * provided by the getProperties method of the PortletRequest interface: ...,getHeaders,...
    */
   @Override
-  public Enumeration getHeaders(String name) {
+  public Enumeration<String> getHeaders(String name) {
     return resourceRequest.getProperties(name);
   }
 
@@ -94,7 +102,7 @@ public class HttpServletRequestImpl implements HttpServletRequest {
    * provided by the getProperties method of the PortletRequest interface: ...,getHeaderNames,...
    */
   @Override
-  public Enumeration getHeaderNames() {
+  public Enumeration<String> getHeaderNames() {
     return resourceRequest.getPropertyNames();
   }
 
@@ -400,8 +408,7 @@ public class HttpServletRequestImpl implements HttpServletRequest {
    * of the PortletRequest of similar name: ..., getAttributeNames,...
    */
   @Override
-  public Enumeration getAttributeNames() {
-
+  public Enumeration<String> getAttributeNames() {
     return resourceRequest.getAttributeNames();
   }
 
@@ -479,7 +486,7 @@ public class HttpServletRequestImpl implements HttpServletRequest {
    * ..., getParameterNames,...
    */
   @Override
-  public Enumeration getParameterNames() {
+  public Enumeration<String> getParameterNames() {
     return resourceRequest.getParameterNames();
   }
 
@@ -503,7 +510,7 @@ public class HttpServletRequestImpl implements HttpServletRequest {
    * ..., getParameterMap,...
    */
   @Override
-  public Map getParameterMap() {
+  public Map<String, String[]> getParameterMap() {
     return resourceRequest.getParameterMap();
   }
 
@@ -623,7 +630,7 @@ public class HttpServletRequestImpl implements HttpServletRequest {
    * of the PortletRequest of similar name: ..., getLocales,...
    */
   @Override
-  public Enumeration getLocales() {
+  public Enumeration<Locale> getLocales() {
     return resourceRequest.getLocales();
   }
 
@@ -707,5 +714,78 @@ public class HttpServletRequestImpl implements HttpServletRequest {
 
   public ServletContext getServletContext() {
     return servletContext;
+  }
+
+  /**
+   * servlet-3.0-fr-eval-oth-JSpec, December 2009
+   * 13.3 Programmatic Security
+   */
+  @Override
+  public boolean authenticate(HttpServletResponse httpServletResponse)
+  throws IOException, ServletException {
+    throw new UnsupportedOperationException();
+  }
+
+  /**
+   * servlet-3.0-fr-eval-oth-JSpec, December 2009
+   * 13.3 Programmatic Security
+   */
+  @Override
+  public void login(String s, String s1) throws ServletException {
+    throw new UnsupportedOperationException();
+  }
+
+  /**
+   * servlet-3.0-fr-eval-oth-JSpec, December 2009
+   * 13.3 Programmatic Security
+   */
+  @Override
+  public void logout() throws ServletException {
+    throw new UnsupportedOperationException();
+  }
+
+  /**
+   * servlet-3.0-fr-eval-oth-JSpec, December 2009
+   * 3.2 File upload
+   */
+  @Override
+  public Collection<Part> getParts() throws IOException, ServletException {
+    throw new UnsupportedOperationException();
+  }
+
+  /**
+   * servlet-3.0-fr-eval-oth-JSpec, December 2009
+   * 3.2 File upload
+   */
+  @Override
+  public Part getPart(String s) throws IOException, ServletException {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public AsyncContext startAsync() throws IllegalStateException {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public AsyncContext startAsync(ServletRequest servletRequest, ServletResponse servletResponse)
+  throws IllegalStateException {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override public boolean isAsyncStarted() {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override public boolean isAsyncSupported() {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override public AsyncContext getAsyncContext() {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override public DispatcherType getDispatcherType() {
+    throw new UnsupportedOperationException();
   }
 }

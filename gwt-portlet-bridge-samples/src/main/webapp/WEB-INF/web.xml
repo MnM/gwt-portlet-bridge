@@ -3,6 +3,18 @@
     "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
+  <!-- This is only required for the RpcClientServlet example, portlet RPC goes through the
+       RpcPortlet object.
+    -->
+  <servlet>
+    <servlet-name>com.chfourie.samples.rpc.RpcClient RpcClientService</servlet-name>
+    <servlet-class>com.chfourie.samples.rpc.server.RpcClientServiceServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>com.chfourie.samples.rpc.RpcClient RpcClientService</servlet-name>
+    <url-pattern>/RpcClientServlet/RpcClientService</url-pattern>
+  </servlet-mapping>
+
   <taglib>
     <taglib-uri>http://chfourie.com/gwt-portlet-bridge</taglib-uri>
     <taglib-location>WEB-INF/lib/gwt-portlet-bridge-core-${project.version}.jar</taglib-location>

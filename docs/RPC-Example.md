@@ -4,8 +4,8 @@ RPC Example
 In this example I will take a simple RPC project and integrate the gwt-portlet-bridge into it.  The finished example can be found under the 'samples' folder in the source tree.
 
 
-The Initial Application  
--------------------------------
+The Initial Application
+-----------------------
 
 We will start of with the following stock standard GWT application...
 
@@ -182,7 +182,7 @@ Please note that the inherit clause for the _GwtPortletBridge_ module should be 
 
 
 ### Step 3: Update RpcClientService.java
-Remove the @RemoteServiceRelativePath annotation from the service interface .
+Remove the @RemoteServiceRelativePath annotation from the service interface.
 
 ```java
 package com.chfourie.samples.rpc.client;
@@ -195,10 +195,9 @@ public interface RpcClientService extends RemoteService {
 
 ```
 
-### Step 4: Update your web.xml file.
-Make the following changes to web.xml:
-  * Remove the servlet definition.
-  * Include the gwt-portlet-bridge tag library
+
+### Step 4: Update your web.xml file
+Include the gwt-portlet-bridge tag library in your `web.xml`.
 
 ```java
 <?xml version="1.0" encoding="UTF-8"?>
@@ -244,6 +243,10 @@ public class RpcPortlet extends GwtPortlet {
 }
 ```
 
+Be careful as this implementation of `doView` doesn't actually work on Liferay/Tomcat. Instead,
+use `include(request, response, "/WEB-INF/jsp/rpc.jsp")`.
+
+
 ### Step 6: Implement WEB-INF/jsp/rpc.jsp
 
 ```jsp
@@ -253,6 +256,7 @@ public class RpcPortlet extends GwtPortlet {
 
 <div id="rpc-client-root"></div>
 ```
+
 
 ### Step 7: Implement WEB-INF/portlet.xml
 
@@ -284,5 +288,40 @@ public class RpcPortlet extends GwtPortlet {
 </portlet-app>
 ```
 
-### Step 8: Delete the original HTML
+
+### (Optional) Step 8: Delete the original HTML
+
 The original HTML file for the GWT application can be deleted since it is no longer required.
+
+
+### (Optional) Step 9: Remove the servlet definition.
+
+Pure portlet projects don't use any servlets, all access happens through an instance of the class
+registered in `portlet.xml`. Thus, all servlet definitions can be removed from the `web.xml`.
+
+
+Hybrid Servlets/Portlets
+------------------------
+
+The bridge allows a GWT application to be registered as a Portlet and a Servlet, by
+  * skipping steps 8 and 9 above, and
+  * including a property-provider to switch between portlet or servlet modes.
+
+By default, portlet mode is enabled as soon as you inherit the bridge's GWT module. By including a
+property-provider, the GWT compiler has to compile permutations for all variants the provider could
+enable: portlet and servlet. This effectively doubles the number of permutations that need to be
+compiled. This will lead to one target containing the RemoteService enhancements done by the bridge
+to call through the portal/GwtPortlet, and the other one using the default GWT implementation
+calling the servlets in `web.xml`.
+
+Sadly, there doesn't seem to be a standard way of recognising whether we're running in a portal
+environment or stand-alone. The `gwt-portlet-bridge-extra` module provides an example
+property-provider that works on Liferay. It can be registered by adding the following to the
+`RpcClient.gwt.xml`:
+
+```xml
+
+  <property-provider name="gpb.runningAs"
+                     generator="com.chfourie.gwtportletbridge.linker.LiferayAwareBridgeEnabler"/>
+
+```

@@ -156,6 +156,9 @@ public abstract class GwtPortlet extends GenericPortlet {
     addServeResourceHandler(resourceId.getName(), handler);
   }
 
+  protected void include(RenderRequest request, RenderResponse response, String view) throws PortletException, IOException {
+    getPortletContext().getRequestDispatcher(view).include(request, response);
+  }
 
   protected void forward(RenderRequest request, RenderResponse response, String view) throws PortletException, IOException {
     getPortletConfig().getPortletContext().getRequestDispatcher(view).forward(request, response);

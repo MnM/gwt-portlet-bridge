@@ -6,17 +6,10 @@
   <inherits name='com.chfourie.gwtportletbridge.GwtPortletBridge'/>
 
   <!-- This can be set automatically by something like the
-    LiferayAwareBridgeEnabler (if you happen to use Liferay), making it possible
-    to use the same code as portlet and as servlet. -->
+    LiferayAwareBridge module (if you happen to use Liferay), making it possible
+    to deploy the same code as portlet and as servlet. -->
   <set-property name="gpb.runningAs" value="servlet"/>
 
-  <inherits name="com.google.gwt.i18n.I18N"/>
-
-  <inherits name='com.chfourie.gwtportletbridge.GwtPortletBridgeExtra'/>
-
-  <property-provider name="locale"
-                     generator="com.chfourie.gwtportletbridge.linker.LocalePropertyProviderGenerator"/>
-  
   <source path="client"/>
 
   <entry-point class='com.chfourie.samples.rpc.client.RpcClient'/>

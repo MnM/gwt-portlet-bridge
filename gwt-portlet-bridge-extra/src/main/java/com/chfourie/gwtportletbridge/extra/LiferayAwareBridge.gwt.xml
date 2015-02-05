@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Runs in 'servlet' mode if not on Liferay -->
+<module>
+  <inherits name="com.chfourie.gwtportletbridge.GwtPortletBridge"/>
+
+  <property-provider name="gpb.runningAs"><![CDATA[{
+    return typeof(window['Liferay']) === 'undefined' || typeof(window['Liferay']['Portal']) === 'undefined' ? 'servlet' : 'portlet';
+  }]]></property-provider>
+</module>

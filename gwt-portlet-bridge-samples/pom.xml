@@ -31,9 +31,10 @@
 					</execution>
 				</executions>
 				<configuration>
+          <strict>true</strict>
 					<modules>
-						<module>com.chfourie.samples.rpc.RpcClient</module>
-						<module>com.chfourie.samples.rpc.RpcClientServlet</module>
+            <module>com.chfourie.samples.rpc.RpcClientServlet</module>
+            <module>com.chfourie.samples.rpc.RpcClient</module>
 						<module>com.chfourie.samples.requestfactory.RequestFactory</module>
 						<module>com.chfourie.samples.clientparams.ClientParams</module>
 					</modules>
@@ -61,13 +62,6 @@
 			<artifactId>gwt-portlet-bridge-core</artifactId>
 			<version>${project.version}</version>
 			<type>jar</type>
-		</dependency>
-		<dependency>
-			<groupId>com.chfourie</groupId>
-			<artifactId>gwt-portlet-bridge-core</artifactId>
-			<!-- classifier>sources</classifier-->
-			<type>java-source</type>
-			<version>${project.version}</version>
 		</dependency>
     <dependency>
       <groupId>com.chfourie</groupId>

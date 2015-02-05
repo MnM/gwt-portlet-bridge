@@ -16,7 +16,7 @@
   <!-- Default is 'portlet' to behave like the old version. By setting this to 'servlet', the
        bridge will be disabled. Providers allow to generate permutations for portlet and servlet
        modes. -->
-  <set-property name="gpb.runningAs" value="portlet"/>
+  <set-property-fallback name="gpb.runningAs" value="portlet"/>
 
   <generate-with class="com.chfourie.gwtportletbridge.rebind.rpc.PortletServiceInterfaceProxyGenerator">
     <when-type-assignable class="com.google.gwt.user.client.rpc.RemoteService"/>

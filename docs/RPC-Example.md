@@ -321,7 +321,6 @@ property-provider that works on Liferay. It can be registered by adding the foll
 
 ```xml
 
-  <property-provider name="gpb.runningAs"
-                     generator="com.chfourie.gwtportletbridge.linker.LiferayAwareBridgeEnabler"/>
+  <inherits name="com.chfourie.gwtportletbridge.extra.LiferayAwareBridge"/>
 
 ```

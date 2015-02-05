@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Reads html's lang attribute to set the locale -->
+<module>
+  <inherits name="com.google.gwt.i18n.I18N"/>
+
+  <property-provider name="locale"><![CDATA[{
+    var locale = null;
+
+    try {
+
+      var lang = document.getElementsByTagName('html').item(0).getAttribute('lang');
+      locale = lang.replace('-', '_');
+
+      /* inheritance lookup */
+      while (locale && !__gwt_isKnownPropertyValue("locale", locale)) {
+        var lastIndex = locale.lastIndexOf('_');
+        if (lastIndex < 0) {
+          locale = null;
+          break;
+        }
+
+        locale = locale.substring(0, lastIndex);
+      }
+
+    } catch (e) {
+
+      alert('Unexpected exception in locale detection, using default: ' + e);
+
+    }
+
+    return locale || 'default';
+  }]]></property-provider>
+</module>

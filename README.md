@@ -34,34 +34,34 @@ The project is not documented in as much detail as initially intended.  I do tru
 
 ## Version History
 
-The version history can be found [here](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/Version-History.md).
-
-## Downloads
-
-All released artifacts can be downloaded from [here](https://github.com/chfourie/gwt-portlet-bridge/downloads).  
+The version history can be found [here](docs/Version-History.md).
 
 ## Building from Source
 
-The instructions on building the gwt-portlet-bridge from source can be found [here](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/Building-From-Source.md).
+gwt-portlet-bridge is a Maven project, so building it is as simple as
+checking out the project via Git, changing into the directory and
+executing:
+
+  mvn clean install
+
+A Java 7+ compiler is required, because nobody should use anything older
+anymore.
 
 ## Recipes
 
-### Converting a GWT Project into a Portlet
-Follow the steps described in the [RPC Example](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/RPC-Example.md).
-
-### Using RPC in a GWT Portlet Project
-Follow the steps described in the [RPC Example](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/RPC-Example.md).
+### Converting a GWT Project into a Portlet / Using RPC in a GWT Portlet Project
+Follow the steps described in the [RPC Example](docs/RPC-Example.md).
 
 ### Using RequestFactory in a GWT Portlet Project
-Follow the steps described in the [RequestFactory Example](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/RequestFactory-Example.md).
+Follow the steps described in the [RequestFactory Example](docs/RequestFactory-Example.md).
 
 ### Using both RPC and RequestFactory in the same GWT Portlet Project
-Follow the steps described in the [RequestFactory Example](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/RequestFactory-Example.md).  
+Follow the steps described in the [RequestFactory Example](docs/RequestFactory-Example.md).  
 You do **NOT** have to inherit _com.chfourie.gwtportletbridge.GwtPortletBridge_ separately.  
 Just make sure that your _com.chfourie.gwtportletbridge.RequestFactory_ inherit clause is positioned after any other modules that might inherit from _com.google.gwt.core.Core_.
 
 ### Embedding String Parameters in your HTML page
-Follow the steps described in the [Client Parameters Example](https://github.com/chfourie/gwt-portlet-bridge/blob/master/docs/Client-Parameters-Example.md).
+Follow the steps described in the [Client Parameters Example](docs/Client-Parameters-Example.md).
 
 ## License
 All of the deliverable code in the GWT Portlet Bridge has been dedicated to the public domain.  

@@ -42,7 +42,7 @@ gwt-portlet-bridge is a Maven project, so building it is as simple as
 checking out the project via Git, changing into the directory and
 executing:
 
-  mvn clean install
+    mvn clean install
 
 A Java 7+ compiler is required, because nobody should use anything older
 anymore.
